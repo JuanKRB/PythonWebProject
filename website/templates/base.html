@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="img/favicon2.ico" type="image/x-icon">
+        <title>Idiomas.com</title>
+        <link rel="stylesheet" href="css/transicion.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500&display=swap"
+            rel="stylesheet"/>
+        <script src="https://kit.fontawesome.com/2fffd61d0d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    </head>
+    <body>
+        <div class="barra-de-navegacion">
+            <a href="/">Inicio</a>
+            <a href="contenidoController">Contenido</a>
+            <div class="desplegable">
+                <button class="boton-desplegable">
+                    Idiomas
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="contenido-desplegable">
+                    <div class="contenido-desplegable">
+                        <a href="#">
+                            <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="Estados Unidos"> Inglés
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="Francia"> Francés
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/espana.png') }}" alt="España"> Español
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/portugal.png') }}" alt="Portugal"> Portugués
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="Alemania"> Alemán
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="Italia"> Italiano
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/mandarin_1.png') }}" alt="China"> Mandarín
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/japon.png') }}" alt="Japón"> Japonés
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/corea.png') }}" alt="Corea"> Coreano
+                        </a>
+                        <a href="contenido.jsp">
+                            <img src="{{ url_for('static', filename='img/rusia.png') }}" alt="Rusia"> Ruso
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#">Tienda</a>
+
+            <a href="subirContenido.jsp">Subir Contenido</a>
+            <a href="revisarContenido.jsp">Revisar Contenido</a>
+            <a href="colaborador.jsp">Mi Cuenta</a>
+
+            <a href="/login">Iniciar Sesión</a>
+        </div>
+
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <script
+            type="text/javascript"
+            src="{{ url_for('static', filename='header.css') }}"
+        ></script>
+
+    </body>
+</html>

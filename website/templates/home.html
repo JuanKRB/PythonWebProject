@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Idiomas.com</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+      <script src="https://kit.fontawesome.com/2fffd61d0d.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/partePrincipal.css') }}">
+  </head>
+  <body>
+    <!--BANNER PRINCIPAL-->
+    <div class="imagen-principal">
+      <div class="texto-imagen">
+          <h1 class="texto-mayusculas negrita">
+              Aprende Diferentes<br /><span class="normal">Idiomas&nbsp;</span
+              >Universales
+          </h1>
+      </div>
+  </div><br>
+<!--------------------------------------------------------------------------->
+
+<!--CARTAS DE IDIOMAS-->
+    <div id="titulo-carta">
+      <h1>Idiomas para aprender:</h1>
+    </div>
+    <section id="area-cartas">
+      <div class="contenedor">
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/eestados unidos.png') }}" alt="Ingles" />
+          <div class="superposicion">
+            <h3>Ingles</h3>
+            <p>Descubre el idioma inglés y sumérgete en su rica cultura global, aprender inglés te abre puertas a nuevas oportunidades.</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/francia.png') }}" alt="Frances" />
+          <div class="superposicion">
+            <h3>Frances</h3>
+            <p>Explora la elegancia del idioma francés y su influencia en el arte, aprender francés te conecta con la cultura.</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/Español .png') }}" alt="Espanol" />
+          <div class="superposicion">
+            <h3>Español</h3>
+            <p>Sumérgete en el vibrante mundo del español, aprender español es abrirte a nuevas experiencias y amistades.</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+           <img src="{{ url_for('static', filename='img/portuges.png') }}" alt="Portugues" />
+          <div class="superposicion">
+            <h3>Portugués</h3>
+            <p>Explora el idioma portugués y sumérgete en la cultura vibrante, aprender portugués te conecta con la música del continente.</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/aleman.png') }}" alt="Aleman" />
+          <div class="superposicion">
+            <h3>Alemán</h3>
+            <p>Descubre el idioma alemán, aprender alemán te abre las puertas a una economía fuerte y una sociedad innovadora.</p>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/italia.png') }}" alt="Italiano" />
+          <div class="superposicion">
+            <h3>Italiano</h3>
+            <p>Explora la belleza del italiano y su influencia en el arte, aprender italiano</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/mandarin.png') }}" alt="Mandarin" />
+          <div class="superposicion">
+            <h3>Mandarin</h3>
+            <p>Sumérgete en la fascinante lengua del mandarín y explora, aprender mandarín te abre las puertas</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/japones.png') }}" alt="Japones" />
+          <div class="superposicion">
+            <h3>Japonés</h3>
+            <p>Descubre el idioma japonés y sumérgete, aprender japonés te conecta con una cultura única y fascinante.</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/Coreano.png') }}" alt="Coreano" />
+          <div class="superposicion">
+            <h3>Coreano</h3>
+            <p>Explora el dinámico idioma coreano, aprender coreano te conecta con una cultura moderna y en constante evolución.</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+        <div class="caja">
+          <img src="{{ url_for('static', filename='img/Ruso.png') }}" alt="Ruso" />
+          <div class="superposicion">
+            <h3>Ruso</h3>
+            <p>Sumérgete en el idioma ruso, aprender ruso te conecta con una cultura rica en tradiciones y profundidad histórica.</p>
+            <a href="#">Aprender Ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!----------------------------------------------------------------------->
+
+    <!--CONTENIDO DE ESTUDIO-->
+    <div class="contenedor-contenedor">
+    <div class="contenedor-principal">
+      <div class="caja-contenido">
+        <div id="titulo-contenido">
+          <h1>Contenido de Estudio:</h1>
+        </div>
+        <br><br><br>
+        <div class="contenido">
+          <div id="cuadrado">
+            <i class="fa-solid fa-check-to-slot"></i>
+          </div>
+          <div class="texto-contenido">
+            <h4>Teoría: </h4>
+            <p>Descubre los fundamentos esenciales del idioma a través de explicaciones claras y concisas.</p>
+          </div>
+        </div>
+        <div class="contenido">
+          <div id="cuadrado2">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <div class="texto-contenido">
+            <h4>Practicas: </h4>
+            <p>Refuerza tus habilidades lingüísticas con ejercicios prácticos adaptados a tu nivel.</p>
+          </div>
+        </div>
+        <div class="contenido">
+          <div id="cuadrado3">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <div class="texto-contenido">
+            <h4>Audios: </h4>
+            <p>Mejora tu comprensión auditiva con material audiovisual variado y de alta calidad.</p>
+          </div>
+        </div>
+        <div class="contenido">
+          <div id="cuadrado4">
+            <i class="fa-brands fa-readme"></i>
+          </div>
+          <div class="texto-contenido">
+            <h4>Lecturas: </h4>
+            <p>Explora textos interesantes en el idioma meta para ampliar tu vocabulario y comprensión.</p>
+          </div>
+        </div>
+        <div class="contenido">
+          <div id="cuadrado5">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div class="texto-contenido">
+            <h4>Videos: </h4>
+            <p>Explora nuestra colección de videos interactivos y dinámicos para mejorar tu comprensión oral y pronunciación.</p>
+          </div>
+        </div>
+        <div class="contenido">
+          <div id="cuadrado6">
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+          <div class="texto-contenido">
+            <h4>Vocabulario: </h4>
+            <p>Fortalece tu banco de palabras con listas y ejemplos contextualizados para uso diario.</p>
+          </div>
+        </div>
+      </div>
+
+    <!---------------------------------------------------------------------------------------------->
+
+<!--CONTENIDO FORMULARIO PROMO-->
+      <div class="contenedor-formulario">
+        <div class="contenedor-lateral">
+          <div class="formulario-promo">
+            <h1>¡La forma divertida, efectiva y gratis de aprender un idioma!</h1>
+            <div class="contenido">
+              <div class="campo-entrada">
+              </div>
+            </div>
+            <div class="acciones">
+              <button type="button">EMPIEZA AHORA</button><br><br>
+              <button type="submit">YA TENGO UNA CUENTA</button>
+            </div>
+          </div>
+          <div id="gif">
+            <img src=" {{ url_for('static', filename='img/GigPagina.gif') }}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--------------------------------------------------------------------------------->
+
+
+  </body>
+</html>
+
+{% endblock %}

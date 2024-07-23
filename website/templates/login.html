@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+    src="https://kit.fontawesome.com/2fffd61d0d.js" crossorigin="anonymous">
+    </script>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/IniciarSesion1.css') }}" />
+    <title>Iniciar Sesion</title>
+  </head>
+  <body>
+
+    <!--Formulario de iniciar sesion-->
+    <div class="contenedor">
+      <div class="contenedor-formularios">
+        <div class="iniciar-registrar">
+          <form action="#" class="formulario-iniciar">
+            <h2 class="titulo">Iniciar Sesión</h2>
+            <div class="campo-entrada">
+              <i class="fas fa-user"></i>
+            <!--Imputs-->
+            <input type="text" placeholder="email" name="email" required>
+            </div>
+            <div class="campo-entrada">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="password" name="password" required>
+            </div>
+            <input type="submit" value="Iniciar Sesión" class="btn-sesion" />
+    <!----------------------------------------------------------------------------->
+
+    <!--Redes Sociales-->
+            <div class="redes-sociales">
+              <a href="#" class="icono-social">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="icono-social">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="icono-social">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="icono-social">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            <!------------------------------------------------------------------->
+          </form>
+    <!------------------------------------------------------------------------->
+
+    <!--Formulario Registrarse-->
+          <form action="#" class="formulario-registrar">
+            <h2 class="titulo">Regístrate</h2>
+            <div class="campo-entrada">
+              <i class="fas fa-envelope"></i>
+              <input type="text" placeholder="Nombre" name="nombreRegistro" required>
+            </div>
+            <div class="campo-entrada">
+              <i class="fas fa-envelope"></i>
+              <input type="text" placeholder="Correo" name="correoRegistro" required>
+            </div>
+            <div class="campo-entrada">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Contraseña" name="contraRegistro" required><br>
+            </div>
+
+            <label >Selecciona un pais:</label>
+            <div class="selector-paises">
+              <select id="idioma" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+                <option value="fr">Francés</option>
+                <option value="al">Alemán</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Portugués</option>
+                <option value="md">Mandarín</option>
+                <option value="ja">Japonés</option>
+                <option value="co">Coreano</option>
+                <option value="rs">Ruso</option>
+              </select>
+            </div>
+
+         <label >Ser colaborador:</label>
+            <div class="checkbox">
+              <input type="checkbox" id="click" name="click" value="colaborador">
+              <label for="click" class="text"></label>
+            </div><br>
+
+            <input type="submit" class="btn-sesion" value="Regístrate" />
+    <!-------------------------------------------------------------------------------->
+
+        <!--Redes Sociales-->
+            <div class="redes-sociales">
+              <a href="#" class="icono-social">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="icono-social">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="icono-social">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="icono-social">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+  <!------------------------------------------------------------->
+          </form>
+  <!---------------------------------------------------------------->
+        </div>
+      </div>
+
+       <!--Texto de arriba(Iniciar Sesion)-->
+      <div class="contenedor-panelIzq">
+        <div class="panel panel-izquierdo">
+          <div class="contenido">
+            <h3>¿Eres nuevo?</h3>
+            <p>
+              ¿Eres nuevo aquí?
+              ¡Únete hoy y comienza a explorar todas las funcionalidades exclusivas que tenemos para ti!
+            </p>
+            <button class="btn transparente" id="btn-registrarse">
+              REGÍSTRATE
+            </button>
+          </div>
+  <!------------------------------------------------------------------------>
+           <!--Imagen1-->
+          <img src="{{ url_for('static', filename='img/imagen2 (1).png') }}" class="imagen" alt="" />
+        </div>
+
+         <!--Texto de arriba(Registrarse)-->
+        <div class="panel panel-derecho">
+          <div class="contenido">
+            <h3>¿Ya tienes una cuenta?</h3>
+            <p>
+              ¿Ya tienes una cuenta? acceder a tu perfil y continuar donde lo dejaste.
+              Nos alegra tenerte de vuelta.
+            </p>
+            <button class="btn transparente" id="btn-iniciar">
+              Iniciar Sesión
+            </button>
+          </div>
+
+          <div class="panel panel-derecho">
+            <div class="contenido">
+              <h3>¿Quieres ser colaborador?</h3>
+              <p>
+                Regitrarte activando la opcion podras compartir contenido con nosotros y ser parte de la comunidad
+              </p>
+            </div><br>
+
+
+           <!--Imagen2-->
+          <img src="{{ url_for('static', filename='img/imagen1 (2).png') }}" class="imagen" alt="" />
+        </div>
+      </div>
+    </div>
+ <!------------------------------------------------------------------->
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
+
+{% endblock %}
