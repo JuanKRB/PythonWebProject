@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  /* Nuevo*/
+  display: block;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+}
+
+.tarjeta-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 370px;
+  width: 100%;
+  height: 50%;
+  background: #333;
+  border-radius: 24px;
+  padding: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  /* Nuevo*/
+  top: 110px;
+  left: 700px;
+}
+
+.tarjeta-perfil::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 36%;
+  width: 100%;
+  border-radius: 24px 24px 0 0;
+  background-color: gray;
+}
+
+.imagen {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.imagen .imagen-perfil {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tarjeta-perfil .datos-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+}
+
+.datos-texto .nombre {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.datos-texto .trabajo {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.tarjeta-perfil .botones-medios {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.botones-medios .enlace {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 18px;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  margin: 0 8px;
+  background-color: #4070f4;
+  text-decoration: none;
+}
+
+.tarjeta-perfil .botones {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.botones .boton {
+  color: black;
+  font-size: 18px;
+  text-align:center;
+  font-weight: 400;
+  width: 120px;
+  border: none;
+  border-radius: 24px;
+  margin: 0 10px;
+  padding: 8px 24px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botones .boton:hover {
+  background-color: grey;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    padding: 50px;
+  }
+  .tarjeta-perfil {
+    max-width: 100%;
+    left: 0;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  .imagen {
+    height: 120px;
+    width: 120px;
+  }
+  .imagen .imagen-perfil {
+    padding: 8px;
+  }
+  .datos-texto .nombre {
+    font-size: 18px;
+  }
+  .datos-texto .trabajo {
+    font-size: 14px;
+  }
+  .botones-medios .enlace {
+    height: 30px;
+    width: 30px;
+    font-size: 16px;
+  }
+  .botones .boton {
+    font-size: 12px;
+    padding: 6px 20px;
+  }
+}

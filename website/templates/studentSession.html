@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500&display=swap"
+        rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/2fffd61d0d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estudiantes.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/MiCuentaa.css') }}">
+  <title>Mi Cuenta/Estudiante</title>
+</head>
+<body>
+<div class="barra-lateral">
+  <a href="#" class="logo">
+    <!-- poner logo -->
+  </a>
+  <ul class="menu-lateral">
+    <li><a href="Estudiantes.html"><i class='bx fa-solid fa-user'></i>Mi Cuenta</a></li>
+    <li><a href="Cursos.html"><i class='bx fa-solid fa-folder'></i>Contenido</a></li>
+    <li><a href="Compras.html"><i class='bx fa-solid fa-cart-shopping'></i>Compras</a></li>
+    <li><a href="Tarjetas.html"><i class='bx fa-solid fa-credit-card'></i>Tarjetas</a></li>
+    <li><a href="Facturas.html"><i class='bx fa-solid fa-money-bill'></i>Facturas</a></li>
+    <li><a href="#"><i class='bx fa-solid fa-gear'></i>Configuraciones</a></li>
+  </ul>
+  <ul class="menu-lateral">
+    <li>
+      <a href="#" class="cerrar-sesión">
+        <i class='bx fa-solid fa-right-from-bracket'></i>
+        Cerrar Sesión
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="tarjeta-perfil">
+  <div class="imagen">
+    <img src="{{ url_for('static', filename='img/estudiante.png') }}" alt="" class="imagen-perfil"/>
+  </div>
+  <div class="datos-texto">
+    <span class="nombre">Estudiante</span>
+    <span class="trabajo">Estudiantes de página web</span>
+  </div>
+  <div class="botones-medios">
+    <a href="#" style="background: gray" class="enlace"></a>
+    <a href="#" style="background: white" class="enlace"></a>
+    <a href="#" style="background: gray" class="enlace"></a>
+    <a href="#" style="background: white" class="enlace"></a>
+  </div>
+  <div class="botones">
+    <a href="#" class="boton">Volver al Inicio</a>
+    <a href="/logout" class="boton">Cerrar Sesión</a>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+{% endblock %}

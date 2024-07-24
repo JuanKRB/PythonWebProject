@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+
+}
+
+.tituloFacturas{
+    position: relative;
+left: 120px;
+top: 50px;
+
+
+}
+
+.tarjeta-div{
+    margin-top: 60px;
+    width: 850px;
+    height: 190px;
+    border-radius: 12px;
+    background-color: rgb(201, 198, 198);
+    margin-left: 25%;
+    display: flex;
+}
+
+.img-tarjeta {
+    display: block;
+
+}
+
+.img-tarjeta img{
+    width: 170px;
+    height: 170px;
+    margin-left: 30px;
+padding: 6px;
+}
+
+.info{
+
+    margin-left: 50px;
+}
+
+.info h4{
+    margin-top: 6px;
+    font-size: 20px;
+color: black;
+}
+
+.info p{
+    margin-top: 6px;
+    font-size: 18px;
+    color: black;
+}
+
+#fechaV{
+
+    margin-top: 26px;
+}
+
+#nombre{
+    margin-top: 34px;
+
+}
+
+.info2{
+
+    margin-left: 90px;
+}
+
+.info2 h4{
+    margin-top: 6px;
+    font-size: 20px;
+    color: black;
+}
+
+.info2 p{
+    margin-top: 6px;
+    color: black;
+    font-size: 18px;
+}
+
+#fechaV{
+
+    margin-top: 26px;
+}
+
+#nombre{
+    margin-top: 34px;
+
+}
+
+.imagenes{
+    display: block;
+    margin-left: 65px;
+}
+
+.basurero{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-top: 40px;
+    margin-left: 4px;
+}
+
+.lapiz{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-top: 30px;
+
+}
+
+
+@media (max-width: 1050px) {
+
+    .tarjeta-div{
+
+        margin-left: 14%;
+    }
+
+}

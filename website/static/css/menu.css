@@ -4,33 +4,20 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
   }
-
+  
   body {
     background: #1e1e1e;
     color: #fff;
-    animation: transitionIn 0.75s;
+  
   }
-
-
-  @keyframes transitionIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
+  
   .barra-de-navegacion {
     display: flex;
     justify-content: flex-end;
     overflow: hidden;
     background-color: #1e1e1e;
   }
-
+  
   .barra-de-navegacion a {
     float: left;
     font-size: 16px;
@@ -39,14 +26,14 @@
     padding: 14px 16px;
     text-decoration: none;
   }
-
+  
   .desplegable {
     float: left;
     overflow: hidden;
   }
-
+  
   .desplegable .boton-desplegable {
-    font-size: 16px;
+    font-size: 16px;  
     border: none;
     outline: none;
     color: white;
@@ -55,20 +42,20 @@
     font-family: inherit;
     margin: 0;
   }
-
+  
   .barra-de-navegacion a:hover, .desplegable:hover .boton-desplegable {
     background-color: rgb(83, 83, 83);
   }
-
+  
   .contenido-desplegable {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 1;
   }
-
+  
   .contenido-desplegable a {
     float: none;
     color: black;
@@ -77,11 +64,11 @@
     display: block;
     text-align: left;
   }
-
+  
   .contenido-desplegable a:hover {
     background-color: #ddd;
   }
-
+  
   .desplegable:hover .contenido-desplegable {
     display: block;
   }
@@ -90,7 +77,3 @@
     width: 20px;
     height: auto;
   }
-
-
-
-

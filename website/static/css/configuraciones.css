@@ -1,0 +1,114 @@
+html body {
+    background: #1e1e1e;
+    margin-top: 20px;
+    color: #ffffff; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    background: #2e2e2e;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff; 
+}
+
+.card {
+    background-color: #3e3e3e;
+    color: #ffffff;
+}
+
+.ui-w-80 {
+    width: 80px !important;
+    height: auto;
+}
+
+.btn-default {
+    border-color: rgba(24, 28, 33, 0.1);
+    background: rgba(0, 0, 0, 0);
+    color: #ffffff; 
+}
+
+label.btn {
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    border-color: #26B4FF;
+    background: transparent;
+    color: #26B4FF;
+}
+
+.row-bordered {
+    overflow: hidden;
+}
+
+.account-settings-fileinput {
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+
+.account-settings-links .list-group-item {
+    color: #ffffff; 
+    background-color: #3e3e3e; 
+}
+
+.account-settings-links .list-group-item.active {
+    font-weight: bold !important;
+    color: #ffffff;
+    background-color: #3e3e3e; 
+}
+
+html:not(.dark-style) .account-settings-links .list-group-item.active {
+    background: transparent !important;
+}
+
+.account-settings-multiselect~.select2-container {
+    width: 100% !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding: 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #ffffff !important; 
+}
+
+.material-style .account-settings-links .list-group-item {
+    padding: 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.material-style .account-settings-links .list-group-item.active {
+    color: #ffffff !important; 
+}
+
+.dark-style .account-settings-links .list-group-item {
+    padding: 0.85rem 1.5rem;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+    color: #ffffff !important; 
+}
+
+input.form-control,
+textarea.form-control,
+select.form-control {
+    background-color: #5e5e5e;
+    color: #ffffff;
+    border: 1px solid #7e7e7e;
+}
+
+input.form-control::placeholder,
+textarea.form-control::placeholder {
+    color: #b0b0b0;
+}
