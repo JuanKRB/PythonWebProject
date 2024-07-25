@@ -79,6 +79,7 @@ body {
 
 .barra-lateral {
     position: fixed;
+     /* Nuevo*/
     top: 260;
     left: 0;
     background: var(--claro);

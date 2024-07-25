@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/2fffd61d0d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/colaborador.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/MiCuentaa.css') }}">
+  <title>Mi Cuenta/Colaborador</title>
+</head>
+<body>
+  <div class="barra-lateral">
+    <a href="#" class="logo">
+      <!-- poner logo -->
+    </a>
+    <ul class="menu-lateral">
+      <li><a href="ColaboradorSesion.html"><i class='bx fa-solid fa-user'></i>Mi Cuenta</a></li>
+      <li><a href="MiContenido.html"><i class='bx fa-solid fa-folder'></i>Mi Contenido</a></li>
+      <li><a href="ContenidoRevision.html"><i class='bx fa-solid fa-triangle-exclamation'></i>Contenido Revision</a></li>
+      <li><a href="Configuraciones.html"><i class='bx fa-solid fa-gear'></i>Configuraciones</a></li>
+    </ul>
+    <ul class="menu-lateral">
+      <li>
+        <a href="/logout" class="cerrar-sesión">
+          <i class='bx fa-solid fa-right-from-bracket'></i>
+          Cerrar Sesión
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tarjeta-perfil">
+    <div class="imagen">
+      <img src="{{ url_for('static', filename='img/perfilColaborador.jpg') }}" alt="" class="imagen-perfil" />
+    </div>
+    <div class="datos-texto">
+      <span class="nombre">Colaborador</span>
+      <span class="trabajo">Colaborador de página web</span>
+    </div>
+    <div class="botones-medios">
+      <a href="#" style="background: gray" class="enlace"></a>
+      <a href="#" style="background: white" class="enlace"></a>
+      <a href="#" style="background: gray" class="enlace"></a>
+      <a href="#" style="background: white" class="enlace"></a>
+    </div>
+    <div class="botones">
+       <a href="/" class="boton">Volver al Inicio</a>
+       <a href="/logout" class="boton">Cerrar Sesión</a>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{% endblock %}

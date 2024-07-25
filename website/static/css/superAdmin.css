@@ -9,21 +9,22 @@
     --advertencia: #CFE8FF;
     --exito: #a51ee4;
     --texto-claro: #ffffff;
-    
+
 }
 
-body, 
+body,
 body * {
     color: var(--texto-claro);
-    
+
 }
+
 a {
     text-decoration: none;
     color: var(--texto-claro);
 }
 
 .contenido nav a {
-    color: var(--texto-claro); 
+    color: var(--texto-claro);
 }
 
 .contenido nav .bx.bx-menu {
@@ -33,23 +34,23 @@ a {
 }
 
 .contenido main .encabezado .izquierda h1 {
-    color: var(--texto-claro); 
+    color: var(--texto-claro);
 }
 
 .contenido main .insights li .info h3 {
-    color: var(--texto-claro); 
+    color: var(--texto-claro);
 }
 
 .contenido main .insights li .info p {
-    color: var(--texto-claro); 
+    color: var(--texto-claro);
 }
 
 .contenido main .datos-inferiores {
-    color: var(--texto-claro); 
+    color: var(--texto-claro);
 }
 
 .contenido main .datos-inferiores .encabezado h3 {
-    color: var(--texto-claro); 
+    color: var(--texto-claro);
 }
 
 * {
@@ -75,13 +76,15 @@ body {
     background: var(--gris);
     overflow-x: hidden;
 }
+
+
 .barra-lateral {
     position: fixed;
-     /* Nuevo*/
+    /* Nuevo */
     top: 260;
     left: 0;
     background: var(--claro);
-    width: 280px;
+    width: 230px;
     height: 100%;
     z-index: 2000;
     overflow-x: hidden;
@@ -127,6 +130,8 @@ body {
     position: relative;
 }
 
+
+
 .menu-lateral {
     list-style-type: none;
     padding: 0;
@@ -144,18 +149,21 @@ body {
     display: flex;
     align-items: center;
     border-radius: 48px;
-    font-size: 19px;
+    font-size: 16px;
     color: var(--texto-claro);
     white-space: nowrap;
     overflow-x: hidden;
     transition: all 0.3s ease;
+
 }
+
 
 .barra-lateral .menu-lateral li a .bx {
     min-width: calc(60px - ((4px + 6px) * 2));
     display: flex;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     justify-content: center;
+    margin-right: 8px;
 }
 
 .barra-lateral .menu-lateral li a.cerrar-sesión {
@@ -299,7 +307,7 @@ body {
 .contenido main .datos-inferiores .ordenes table {
     width: 100%;
     border-collapse: collapse;
-    
+
 }
 
 .contenido main .datos-inferiores .ordenes table th {
@@ -338,8 +346,12 @@ body {
 }
 
 td a {
-    margin-right: 11px; 
+    margin-right: 11px;
 }
+
+
+
+
 
 
 
@@ -407,17 +419,6 @@ td a {
     .contenido nav form .formulario-entrada {
         width: 100%;
     }
-}
-
-/* Nuevo*/
-#flash-messages {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 0px;
-    margin: 0 auto;
 }
 
 

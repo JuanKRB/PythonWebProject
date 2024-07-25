@@ -2,16 +2,7 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-   <!--{{ user + "s" }}
 
-   {% if boolean == True:%}
-   <h2>Yes, it's true</h2>
-
-   {% elif boolean == False:%}
-      <h2>it's false 1</h2>
-    {% else:%}
-   <h2>it's false 2 </h2>
-   {% endif%}-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +23,7 @@
           <form method="POST" class="formulario-iniciar">
             <h2 class="titulo">Iniciar Sesión</h2>
             <div class="campo-entrada">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-envelope"></i>
             <!--Imputs-->
             <input type="text" placeholder="Correo" name="email" required>
             </div>
@@ -67,7 +58,7 @@
           <form method="POST" class="formulario-registrar">
             <h2 class="titulo">Regístrate</h2>
             <div class="campo-entrada">
-              <i class="fas fa-envelope"></i>
+              <i class="fa fa-user"></i>
               <input type="text" placeholder="Nombre" name="nameSingUp" required>
             </div>
             <div class="campo-entrada">
@@ -83,7 +74,8 @@
               <input type="password" placeholder="Confirme la contraseña" name="password2SingUp" required><br>
             </div>
 
-            <label >Selecciona un pais:</label>
+            <label id="tituloPais" >Selecciona un pais:</label>
+
             <div class="selector-paises">
               <select id="idioma" name="idioma">
                 <option value="1">Español</option>
@@ -101,7 +93,7 @@
 
          <label >Ser colaborador:</label>
             <div class="checkbox">
-              <input type="checkbox" id="click" name="click" value="colaborador">
+              <input type="checkbox" id="click" name="click" value="cl">
               <label for="click" class="text"></label>
             </div><br>
 
@@ -178,6 +170,45 @@
  <!------------------------------------------------------------------->
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script>
+    // Espera a que el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn_iniciar = document.querySelector("#btn-iniciar");
+        const btn_registrarse = document.querySelector("#btn-registrarse");
+        const contenedor = document.querySelector(".contenedor");
+
+        // Manejador para el botón "Registrarse"
+        btn_registrarse.addEventListener("click", () => {
+            contenedor.classList.add("modo-registrarse");
+        });
+
+        // Manejador para el botón "Iniciar Sesión"
+        btn_iniciar.addEventListener("click", () => {
+            contenedor.classList.remove("modo-registrarse");
+        });
+
+        // Manejador para el checkbox
+        document.getElementById('click').addEventListener('change', function () {
+            var otroInput = document.getElementById('idioma');
+            var otroLabel = document.getElementById('tituloPais');
+            if (this.checked) {
+                otroInput.style.display = 'none';
+                otroLabel.style.display = 'none';
+            } else {
+                otroInput.style.display = 'block';
+                otroLabel.style.display = 'block';
+            }
+        });
+    });
+
+  {% if is_singUP %}
+  contenedor.classList.add("modo-registrarse");
+  {% endif %}
+
+</script>
+
+
   </body>
 </html>
 

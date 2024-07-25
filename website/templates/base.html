@@ -67,13 +67,25 @@
                 </div>
             </div>
 
-            <a href="#">Tienda</a>
 
-            <a href="subirContenido.jsp">Subir Contenido</a>
-            <a href="revisarContenido.jsp">Revisar Contenido</a>
-            <a href="colaborador.jsp">Mi Cuenta</a>
+            {% if user.is_authenticated %}
+               {% if userType == 'E' %}
+                  <a href="#">Tienda</a>
+                  <a href="/student">Mi Cuenta</a>
+               {% elif userType == 'C' %}
+                  <a href="/subirContenido">Subir Contenido</a>
+                  <a href="/revisarContenido">Revisar Contenido</a>
+                  <a href="/collaborator">Mi Cuenta</a>
+               {% elif userType == 'A' %}
+                  <a href="/admin">Mi Cuenta</a>
+               {% elif userType == 'SP' %}
+                  <a href="/superAdmin">Mi Cuenta</a>
+               {% endif %}
+            {% else %}
+                <a href="/login">Iniciar Sesión</a>
+            {% endif %}
 
-            <a href="/login">Iniciar Sesión</a>
+
         </div>
 
      {% with messages = get_flashed_messages(with_categories=true) %}
@@ -82,7 +94,7 @@
            {% if category == 'error' %}
             <div id="flash-messages" class="alert alert-danger alert-dismissable fade show" role="alert">
                 {{ message }}
-                <button type="button" class="close" data-dismiss="alert">
+                <button type="button" class="close" data-dismiss="alert" >
                     <span aria-hidden="true" >&times;</span>
                 </button>
             </div>
