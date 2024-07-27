@@ -31,3 +31,8 @@ def admin():
 def superAdmin():
     userType = session.get('userType', 'No definido')
     return render_template("superAdmin.html", user=current_user, userType=userType)
+
+@views.route('/contenido')
+def contenido():
+    userType = session.get('userType', 'No definido')
+    return render_template("generalContent.html", user=current_user, userType=userType)
