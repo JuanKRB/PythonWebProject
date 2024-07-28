@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
+from sqlalchemy import inspect
 
 db = SQLAlchemy()
 DB_USER = 'root'
@@ -15,6 +16,13 @@ def create_app():
     app.config['SECRET_KEY'] = '12ab'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
     db.init_app(app)
+
+    with app.app_context():
+        inspector = inspect(db.engine)
+
+        # Mostrar nombres de tablas
+        table_names = inspector.get_table_names()
+        print("Nombres de las tablas:", table_names)
 
     from .views import views
     from .auth import auth

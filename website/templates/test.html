@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Versiones de Contenido</title>
+</head>
+<body>
+    <h1>Versiones de Contenido</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Version ID</th>
+                <th>Colaborador</th>
+                <th>Contenido ID</th>
+                <th>Complete</th>
+                <th>Seleccion Multiple</th>
+                <th>Teoria</th>
+                <th>Asocie</th>
+                <th>Multimedia</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for version in versiones %}
+            <tr>
+                <td>{{ version.id_version }}</td>
+                <td>{{ version.colaborador.nombre }}</td>
+                <td>{{ version.contenido.id_contenido }}</td>
+                <td>{{ version.complete.titulo }}</td>
+                <td>{{ version.seleccion_multiple.titulo }}</td>
+                <td>{{ version.teoria.titulo }}</td>
+                <td>{{ version.asocie.titulo }}</td>
+                <td>{{ version.multimedia.titulo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+{% endblock %}

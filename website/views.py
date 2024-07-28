@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, session
+from flask import Blueprint, render_template, session, request
+from .models import VersionContenido
 from flask_login import login_required, current_user
+from sqlalchemy.orm import joinedload
 
 views = Blueprint('views', __name__)
 
@@ -32,7 +34,28 @@ def superAdmin():
     userType = session.get('userType', 'No definido')
     return render_template("superAdmin.html", user=current_user, userType=userType)
 
-@views.route('/contenido')
+@views.route('/contenido', methods=['GET', 'POST'])
 def contenido():
-    userType = session.get('userType', 'No definido')
-    return render_template("generalContent.html", user=current_user, userType=userType)
+    if request.method == 'GET':
+        try:
+            versiones_contenido = VersionContenido.query.options(
+                joinedload(VersionContenido.complete),
+                joinedload(VersionContenido.seleccion_multiple),
+                joinedload(VersionContenido.teoria),
+                joinedload(VersionContenido.asocie),
+                joinedload(VersionContenido.multimedia),
+                joinedload(VersionContenido.colaborador),
+                joinedload(VersionContenido.contenido)
+            ).all()
+
+            print("Versiones de contenido:", versiones_contenido)  # Verifica el contenido de la consulta
+
+            userType = session.get('userType', 'No definido')
+            return render_template('generalContent.html', versiones=versiones_contenido,
+                                   user=current_user, userType=userType)
+        except Exception as e:
+            print(f"Error al obtener versiones de contenido: {e}")
+            return str(e)
+
+
+

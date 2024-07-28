@@ -9,15 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500&display=swap"
-        rel="stylesheet" />
+          rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/2fffd61d0d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/contenido.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contenido.css') }}"/>
     <title>Contenido</title>
 
 </head>
 
 <body>
-
 
 <div class="container-buscar">
     <form method="POST" class="formulario-iniciar">
@@ -28,208 +27,185 @@
     </form>
 </div>
 
-    <div class="selecionar-contenido">
-        <h3 class="contenido-titulos" >Filtrar idioma: </h3>
-        <div class="selector-paises">
-            <select id="idioma" name="idioma">
-                <option value="es">Español</option>
-                <option value="en">Inglés</option>
-                <option value="fr">Francés</option>
-                <option value="al">Alemán</option>
-                <option value="it">Italiano</option>
-                <option value="pt">Portugués</option>
-                <option value="md">Mandarín</option>
-                <option value="ja">Japonés</option>
-                <option value="co">Coreano</option>
-                <option value="rs">Ruso</option>
-            </select>
-        </div>
-
-        <h3 class="contenido-titulos">Filtrar contenido: </h3>
+<div class="selecionar-contenido">
+    <h3 class="contenido-titulos">Filtrar idioma: </h3>
+    <div class="selector-paises">
         <select id="idioma" name="idioma">
-            <option value="sl">-Seleccione</option>
-            <option value="t">Todo Contenido</option>
-            <option value="t">Teoría</option>
-            <option value="cmp">Complete</option>
-            <option value="s">Selección múltiple</option>
-            <option value="a">Asocie</option>
-            <option value="ml">Multimedia(Videos, Imagenes, Audios o Pdf)</option>
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="fr">Francés</option>
+            <option value="al">Alemán</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Portugués</option>
+            <option value="md">Mandarín</option>
+            <option value="ja">Japonés</option>
+            <option value="co">Coreano</option>
+            <option value="rs">Ruso</option>
         </select>
-    </div><br>
+    </div>
 
-    <div class="content">
+    <h3 class="contenido-titulos">Filtrar contenido: </h3>
+    <select id="contenido" name="contenido">
+        <option value="sl">-Seleccione</option>
+        <option value="t">Todo Contenido</option>
+        <option value="t">Teoría</option>
+        <option value="cmp">Complete</option>
+        <option value="s">Selección múltiple</option>
+        <option value="a">Asocie</option>
+        <option value="ml">Multimedia (Videos, Imágenes, Audios o Pdf)</option>
+    </select>
+</div><br>
 
-        <div class="video-container">
-            <div class="video-content-cover">
-                <div class="video-content">
-                    <a href="" class="video-box">
-                        <img src="{{ url_for('static', filename='img/Teoria.png') }}" alt="">">
-                    </a>
-                    <div class="video-details">
-                        <div class="channel-logo">
-                            <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title">Practica teorica de idioma aleman</h3>
-                            <div class="channel-name">Idioma aleman</div>
-                            <div class="views-upload">
-                                <div class="views">2024-07-12/</div>
-                                <div class="upload"> 19:00h</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden-content">
-                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                        <div class="btn"><i class="fa-solid fa-floppy-disk"></i>Guardar</div>
-                       <!-- <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                        <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>-->
+<div class="content">
+    {% for version in versiones %}
+
+    {% if version.teoria.titulo %}
+    <div class="video-content-cover">
+        <div class="video-content">
+            <a href="" class="video-box">
+                <img src="{{ url_for('static', filename='img/Teoria.png') }}" alt="">
+            </a>
+            <div class="video-details">
+                <div class="channel-logo">
+                    <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">
+                </div>
+                <div class="detail">
+                    <h3 class="title">{{ version.teoria.titulo }}</h3>
+                    <div class="channel-name">Idioma {{ version.contenido.nombreIdioma }}</div>
+                    <div class="views-upload">
+                        <div class="views">{{ version.teoria.fecha }}</div>
                     </div>
                 </div>
             </div>
-
-            <div class="video-content-cover">
-                <div class="video-content">
-                    <a href="" class="video-box">
-                        <img src="{{ url_for('static', filename='img/complete.png') }}" alt="">
-                    </a>
-                    <div class="video-details">
-                        <div class="channel-logo">
-                            <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title">Practica complete de idioma español</h3>
-                            <div class="channel-name">Idioma español</div>
-                            <div class="views-upload">
-                                <div class="views">2024-10-04/</div>
-                                <div class="upload">15:00h</div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="hidden-content">
-                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                        <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                        <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-content-cover">
-                <div class="video-content">
-                    <a href="" class="video-box">
-                        <img src="{{ url_for('static', filename='img/Multimedia.png') }}" alt="">
-                    </a>
-                    <div class="video-details">
-                        <div class="channel-logo">
-                            <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title">Video de verbos de idioma ingles</h3>
-                            <div class="channel-name">Idioma Ingles</div>
-                            <div class="views-upload">
-                                <div class="views">2023-06-11/</div>
-                                <div class="upload">13:00h</div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="hidden-content">
-                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                        <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                        <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-content-cover">
-                <div class="video-content">
-                    <a href="" class="video-box">
-                        <img src="{{ url_for('static', filename='img/Seleccion multiple.png') }}" alt="">
-                    </a>
-                    <div class="video-details">
-                        <div class="channel-logo">
-                            <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title">Practica selección multiple de idioma frances</h3>
-                            <div class="channel-name">Idioma frances</div>
-                            <div class="views-upload">
-                                <div class="views">2024-05-12/</div>
-                                <div class="upload">8:00h</div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="hidden-content">
-                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                        <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                        <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-content-cover">
-                <div class="video-content">
-                    <a href="" class="video-box">
-                        <img src="{{ url_for('static', filename='img/Asocie.png') }}" alt="">
-                    </a>
-                    <div class="video-details">
-                        <div class="channel-logo">
-                            <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title">Practica de asocie de idioma japones</h3>
-                            <div class="channel-name">Idioma japones</div>
-                            <div class="views-upload">
-                                <div class="views">2024-02-02/</div>
-                                <div class="upload">21:00h</div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="hidden-content">
-                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                        <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                        <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="video-content-cover">
-                <div class="video-content">
-                    <a href="" class="video-box">
-                        <img src="{{ url_for('static', filename='img/Teoria.png') }}" alt="">
-                    </a>
-                    <div class="video-details">
-                        <div class="channel-logo">
-                            <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title">Practica teorica de idioma italiano</h3>
-                            <div class="channel-name">Idioma italiano</div>
-                            <div class="views-upload">
-                                <div class="views">2024-05-06/</div>
-                                <div class="upload">14:00h</div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="hidden-content">
-                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                        <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                        <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
-                    </div>
-                </div>
+            <div class="hidden-content">
+                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
             </div>
         </div>
     </div>
+    {% endif %}
+
+    {% if version.complete.titulo %}
+
+    <div class="video-content-cover">
+        <div class="video-content">
+            <a href="" class="video-box">
+                <img src="{{ url_for('static', filename='img/complete.png') }}" alt="">
+            </a>
+            <div class="video-details">
+                <div class="channel-logo">
+                    <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
+                </div>
+                <div class="detail">
+                    <h3 class="title">{{ version.complete.titulo }}</h3>
+                    <div class="channel-name">Idioma {{ version.contenido.nombreIdioma }}</div>
+                    <div class="views-upload">
+                        <div class="views">2024-10-04/</div>
+                        <div class="upload">15:00h</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-content">
+                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+            </div>
+        </div>
     </div>
+
+    {% endif %}
+
+    {% if version.multimedia.titulo %}
+    <div class="video-content-cover">
+        <div class="video-content">
+            <a href="" class="video-box">
+                <img src="{{ url_for('static', filename='img/Multimedia.png') }}" alt="">
+            </a>
+            <div class="video-details">
+                <div class="channel-logo">
+                    <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
+                </div>
+                <div class="detail">
+                    <h3 class="title">{{ version.multimedia.titulo }}</h3>
+                    <div class="channel-name">Idioma {{ version.contenido.nombreIdioma }}</div>
+                    <div class="views-upload">
+                        <div class="views">2023-06-11/</div>
+                        <div class="upload">13:00h</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-content">
+                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+            </div>
+        </div>
     </div>
+    {% endif %}
+
+    {% if version.seleccion_multiple.titulo %}
+    <div class="video-content-cover">
+        <div class="video-content">
+            <a href="" class="video-box">
+                <img src="{{ url_for('static', filename='img/Seleccion multiple.png') }}" alt="">
+            </a>
+            <div class="video-details">
+                <div class="channel-logo">
+                    <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
+                </div>
+                <div class="detail">
+                    <h3 class="title">{{ version.seleccion_multiple.titulo }}</h3>
+                    <div class="channel-name">Idioma {{ version.contenido.nombreIdioma }}</div>
+                    <div class="views-upload">
+                        <div class="views">2024-05-12/</div>
+                        <div class="upload">8:00h</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-content">
+                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if version.asocie.titulo %}
+    <div class="video-content-cover">
+        <div class="video-content">
+            <a href="" class="video-box">
+                <img src="{{ url_for('static', filename='img/Asocie.png') }}" alt="">
+            </a>
+            <div class="video-details">
+                <div class="channel-logo">
+                    <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
+                </div>
+                <div class="detail">
+                    <h3 class="title">{{ version.asocie.titulo }}</h3>
+                    <div class="channel-name">Idioma {{ version.contenido.nombreIdioma }}</div>
+                    <div class="views-upload">
+                        <div class="views">2024-02-02/</div>
+                        <div class="upload">21:00h</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-content">
+                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% endfor %}
+</div>
+
+
 
 </body>
-
 </html>
 
 
