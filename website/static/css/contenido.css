@@ -24,22 +24,27 @@ body {
     max-width: 300px; /* Ancho máximo */
     flex: 1 1 auto;
     margin: 10px; /* Margen para espacio entre elementos */
+    height: 10%;
+
 
 }
 
 .video-content {
     padding: 15px;
+
 }
 
 .video-box img {
     width: 100%;
     height: auto;
+
 }
 
 .video-details {
     display: flex;
     align-items: center;
     margin-top: 10px;
+
 }
 
 .channel-logo img {
@@ -85,6 +90,7 @@ body {
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+    width: 270px;
 }
 
 .hidden-content .btn i {
@@ -209,3 +215,11 @@ input {
   .barra-de-navegacion {
     background-color: #181818;
   }
+
+.button-content{
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color:white;
+}

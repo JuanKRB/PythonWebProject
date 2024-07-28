@@ -31,6 +31,7 @@
     <h3 class="contenido-titulos">Filtrar idioma: </h3>
     <div class="selector-paises">
         <select id="idioma" name="idioma">
+            <option value="sl">-Seleccione</option>
             <option value="es">Español</option>
             <option value="en">Inglés</option>
             <option value="fr">Francés</option>
@@ -67,7 +68,27 @@
             </a>
             <div class="video-details">
                 <div class="channel-logo">
-                    <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">
+                    {% if version.contenido.id_idioma == 1 %}
+                        <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 2 %}
+                        <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 3 %}
+                        <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 4 %}
+                        <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 5 %}
+                        <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 6 %}
+                        <img src="{{ url_for('static', filename='img/portugal.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 7 %}
+                        <img src="{{ url_for('static', filename='img/mandarin_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 8 %}
+                        <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 9 %}
+                        <img src="{{ url_for('static', filename='img/corea.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 10 %}
+                        <img src="{{ url_for('static', filename='img/rusia.png') }}" alt="">
+                     {% endif %}
                 </div>
                 <div class="detail">
                     <h3 class="title">{{ version.teoria.titulo }}</h3>
@@ -78,9 +99,36 @@
                 </div>
             </div>
             <div class="hidden-content">
-                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                <form method="POST" class="formulario-registrar">
+                    <input type="hidden" name="type" value="signUp">
+                    <button class="button-content">
+                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                    </button>
+                 </form>
+                 {% if user.is_authenticated %}
+                   {% if userType == 'E' %}
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-floppy-disk"></i> Guardar</div>
+                       </button>
+                    </form>
+
+                   {% elif userType == 'C' %}
+                   <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                      </button>
+                   </form>
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                            <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                       </button>
+                   </form>
+                   {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
@@ -95,21 +143,67 @@
             </a>
             <div class="video-details">
                 <div class="channel-logo">
-                    <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
+                    {% if version.contenido.id_idioma == 1 %}
+                        <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 2 %}
+                        <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 3 %}
+                        <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 4 %}
+                        <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 5 %}
+                        <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 6 %}
+                        <img src="{{ url_for('static', filename='img/portugal.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 7 %}
+                        <img src="{{ url_for('static', filename='img/mandarin_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 8 %}
+                        <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 9 %}
+                        <img src="{{ url_for('static', filename='img/corea.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 10 %}
+                        <img src="{{ url_for('static', filename='img/rusia.png') }}" alt="">
+                     {% endif %}
                 </div>
                 <div class="detail">
                     <h3 class="title">{{ version.complete.titulo }}</h3>
                     <div class="channel-name">Idioma {{ version.contenido.nombreIdioma }}</div>
                     <div class="views-upload">
-                        <div class="views">2024-10-04/</div>
-                        <div class="upload">15:00h</div>
+                        <div class="views">{{ version.complete.fecha }}</div>
                     </div>
                 </div>
             </div>
             <div class="hidden-content">
-                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                <form method="POST" class="formulario-registrar">
+                    <input type="hidden" name="type" value="signUp">
+                    <button class="button-content">
+                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                    </button>
+                 </form>
+                 {% if user.is_authenticated %}
+                   {% if userType == 'E' %}
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-floppy-disk"></i> Guardar</div>
+                       </button>
+                    </form>
+
+                   {% elif userType == 'C' %}
+                   <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                      </button>
+                   </form>
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                            <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                       </button>
+                   </form>
+                   {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
@@ -124,7 +218,27 @@
             </a>
             <div class="video-details">
                 <div class="channel-logo">
-                    <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
+                    {% if version.contenido.id_idioma == 1 %}
+                        <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 2 %}
+                        <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 3 %}
+                        <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 4 %}
+                        <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 5 %}
+                        <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 6 %}
+                        <img src="{{ url_for('static', filename='img/portugal.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 7 %}
+                        <img src="{{ url_for('static', filename='img/mandarin_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 8 %}
+                        <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 9 %}
+                        <img src="{{ url_for('static', filename='img/corea.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 10 %}
+                        <img src="{{ url_for('static', filename='img/rusia.png') }}" alt="">
+                     {% endif %}
                 </div>
                 <div class="detail">
                     <h3 class="title">{{ version.multimedia.titulo }}</h3>
@@ -136,9 +250,36 @@
                 </div>
             </div>
             <div class="hidden-content">
-                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+               <form method="POST" action="/multimedia" >
+                    <input type="hidden" name="id_multimedia" value="{{ version.multimedia.id_multimedia }}">
+                    <button class="button-content">
+                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                    </button>
+                 </form>
+                 {% if user.is_authenticated %}
+                   {% if userType == 'E' %}
+                    <form method="POST" >
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-floppy-disk"></i> Guardar</div>
+                       </button>
+                    </form>
+
+                   {% elif userType == 'C' %}
+                   <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                      </button>
+                   </form>
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                            <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                       </button>
+                   </form>
+                   {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
@@ -152,7 +293,27 @@
             </a>
             <div class="video-details">
                 <div class="channel-logo">
-                    <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
+                    {% if version.contenido.id_idioma == 1 %}
+                        <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 2 %}
+                        <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 3 %}
+                        <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 4 %}
+                        <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 5 %}
+                        <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 6 %}
+                        <img src="{{ url_for('static', filename='img/portugal.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 7 %}
+                        <img src="{{ url_for('static', filename='img/mandarin_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 8 %}
+                        <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 9 %}
+                        <img src="{{ url_for('static', filename='img/corea.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 10 %}
+                        <img src="{{ url_for('static', filename='img/rusia.png') }}" alt="">
+                     {% endif %}
                 </div>
                 <div class="detail">
                     <h3 class="title">{{ version.seleccion_multiple.titulo }}</h3>
@@ -164,9 +325,36 @@
                 </div>
             </div>
             <div class="hidden-content">
-                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                <form method="POST" class="formulario-registrar">
+                    <input type="hidden" name="type" value="signUp">
+                    <button class="button-content">
+                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                    </button>
+                 </form>
+                 {% if user.is_authenticated %}
+                   {% if userType == 'E' %}
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-floppy-disk"></i> Guardar</div>
+                       </button>
+                    </form>
+
+                   {% elif userType == 'C' %}
+                   <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                      </button>
+                   </form>
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                            <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                       </button>
+                   </form>
+                   {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
@@ -180,7 +368,27 @@
             </a>
             <div class="video-details">
                 <div class="channel-logo">
-                    <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
+                    {% if version.contenido.id_idioma == 1 %}
+                        <img src="{{ url_for('static', filename='img/espana.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 2 %}
+                        <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 3 %}
+                        <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 4 %}
+                        <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 5 %}
+                        <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 6 %}
+                        <img src="{{ url_for('static', filename='img/portugal.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 7 %}
+                        <img src="{{ url_for('static', filename='img/mandarin_1.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 8 %}
+                        <img src="{{ url_for('static', filename='img/japon.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 9 %}
+                        <img src="{{ url_for('static', filename='img/corea.png') }}" alt="">
+                    {% elif version.contenido.id_idioma == 10 %}
+                        <img src="{{ url_for('static', filename='img/rusia.png') }}" alt="">
+                     {% endif %}
                 </div>
                 <div class="detail">
                     <h3 class="title">{{ version.asocie.titulo }}</h3>
@@ -192,9 +400,36 @@
                 </div>
             </div>
             <div class="hidden-content">
-                <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
-                <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
-                <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                 <form method="POST" class="formulario-registrar">
+                    <input type="hidden" name="type" value="signUp">
+                    <button class="button-content">
+                        <div class="btn"><i class="fa-solid fa-folder"></i>Ver contenido</div>
+                    </button>
+                 </form>
+                 {% if user.is_authenticated %}
+                   {% if userType == 'E' %}
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-floppy-disk"></i> Guardar</div>
+                       </button>
+                    </form>
+
+                   {% elif userType == 'C' %}
+                   <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                          <div class="btn"><i class="fa-solid fa-pen"></i>Ver cambios realizados</div>
+                      </button>
+                   </form>
+                    <form method="POST" class="formulario-registrar">
+                      <input type="hidden" name="type" value="signUp">
+                       <button class="button-content">
+                            <div class="btn"><i class="fa-solid fa-question"></i>Sugerir cambios</div>
+                       </button>
+                   </form>
+                   {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>

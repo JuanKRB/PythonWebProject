@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session, request
-from .models import VersionContenido
+from .models import VersionContenido, Multimedia
 from flask_login import login_required, current_user
 from sqlalchemy.orm import joinedload
 
@@ -56,6 +56,17 @@ def contenido():
         except Exception as e:
             print(f"Error al obtener versiones de contenido: {e}")
             return str(e)
+
+@views.route('/multimedia', methods=['GET', 'POST'])
+def multimedia():
+    userType = session.get('userType', 'No definido')
+    id_multimedia = request.form.get('id_multimedia')
+
+    multimedia = Multimedia.query.get(id_multimedia)
+
+    return render_template("multimedia.html", user=current_user, userType=userType, multimedia=multimedia)
+
+
 
 
 

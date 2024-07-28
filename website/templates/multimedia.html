@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/multimedia.css') }}"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="multimedia-box">
+        <h2>{{ multimedia.titulo }}</h2>
+        <h4>{{ multimedia.descripcion }}</h4>
+
+        {% if multimedia.url.endswith((".jpg", ".jpeg", ".png", ".gif")) %}
+            <img src="{{ multimedia.url }}" alt="Imagen subida" class="multimedia-image">
+        {% elif multimedia.url.endswith((".mp4", ".webm", ".ogg")) %}
+            <video controls class="multimedia-video">
+                <source src="{{ multimedia.url }}" type="video/mp4">
+                <source src="{{ multimedia.url }}" type="video/webm">
+                <source src="{{ multimedia.url }}" type="video/ogg">
+            </video>
+        {% elif multimedia.url.endswith((".pdf")) %}
+            <embed src="{{ multimedia.url }}" type="application/pdf" class="multimedia-pdf"/>
+        {% else %}
+            <p class="error-message">Hubo un error al subir el archivo. Por favor, intente nuevamente.</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
+
+{% endblock %}
