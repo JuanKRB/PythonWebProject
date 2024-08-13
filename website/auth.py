@@ -50,6 +50,7 @@ def login():
                     db.session.commit()
                     login_user(new_collaborator, remember=True)
                     flash("Colaborador creado", category='success')
+                    session['userType'] = 'C'
                     return redirect(url_for('views.collaborator'))
                 else:
                     new_student = Estudiantes(contra=generate_password_hash(password1SingUp, method='pbkdf2:sha256'),
@@ -58,6 +59,7 @@ def login():
                     db.session.commit()
                     login_user(new_student, remember=True)
                     flash("Estudiante creado", category='success')
+                    session['userType'] = 'E'
                     return redirect(url_for('views.student'))
 
         else:

@@ -16,6 +16,12 @@ def student():
     userType = session.get('userType', 'No definido')
     return render_template("studentSession.html", user=current_user, userType=userType)
 
+@views.route('/store')
+def store():
+    userType = session.get('userType', 'No definido')
+    return render_template("store.html", user=current_user, userType=userType)
+
+
 @views.route('/collaborator')
 @login_required
 def collaborator():

@@ -36,31 +36,31 @@
                         <a href="#">
                             <img src="{{ url_for('static', filename='img/estados-unidos.png') }}" alt="Estados Unidos"> Inglés
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/francia_1.png') }}" alt="Francia"> Francés
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/espana.png') }}" alt="España"> Español
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/portugal.png') }}" alt="Portugal"> Portugués
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/aleman_1.png') }}" alt="Alemania"> Alemán
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/italia_1.png') }}" alt="Italia"> Italiano
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/mandarin_1.png') }}" alt="China"> Mandarín
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/japon.png') }}" alt="Japón"> Japonés
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/corea.png') }}" alt="Corea"> Coreano
                         </a>
-                        <a href="contenido.jsp">
+                        <a href="#">
                             <img src="{{ url_for('static', filename='img/rusia.png') }}" alt="Rusia"> Ruso
                         </a>
                     </div>
@@ -70,11 +70,11 @@
 
             {% if user.is_authenticated %}
                {% if userType == 'E' %}
-                  <a href="#">Tienda</a>
+                  <a href="/store">Tienda</a>
                   <a href="/student">Mi Cuenta</a>
                {% elif userType == 'C' %}
-                  <a href="/subirContenido">Subir Contenido</a>
-                  <a href="/revisarContenido">Revisar Contenido</a>
+                  <a href="#">Subir Contenido</a>
+                  <a href="#">Revisar Contenido</a>
                   <a href="/collaborator">Mi Cuenta</a>
                {% elif userType == 'A' %}
                   <a href="/admin">Mi Cuenta</a>
